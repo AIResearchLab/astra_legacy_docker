@@ -129,8 +129,8 @@ COPY --from=base / /
 
 RUN wget https://raw.githubusercontent.com/AIResearchLab/astra_legacy_ros/main/astra_camera/scripts/56-orbbec-usb.rules && \
     cp 56-orbbec-usb.rules /etc/udev/rules.d/56-orbbec-usb.rules && \
-    service udev reload && \
-    service udev restart
+    udevadm control --reload-rules && \
+    udevadm trigger
 
 COPY workspace_entrypoint.sh /workspace_entrypoint.sh
 
