@@ -127,11 +127,6 @@ WORKDIR /
 
 COPY --from=base / /
 
-RUN wget https://raw.githubusercontent.com/AIResearchLab/astra_legacy_ros/main/astra_camera/scripts/56-orbbec-usb.rules && \
-    cp 56-orbbec-usb.rules /etc/udev/rules.d/56-orbbec-usb.rules && \
-    udevadm control --reload-rules && \
-    udevadm trigger
-
 COPY workspace_entrypoint.sh /workspace_entrypoint.sh
 
 RUN chmod +x /workspace_entrypoint.sh
