@@ -21,6 +21,7 @@ RUN apt-get update -y
 RUN apt-get install -y --no-install-recommends ros-dev-tools \
                                                libgflags-dev \
                                                nlohmann-json3-dev \
+                                               libusb-1.0-0-dev \
                                                ros-$ROS_DISTRO-image-transport \
                                                ros-$ROS_DISTRO-image-publisher \
                                                ros-$ROS_DISTRO-camera-info-manager \
@@ -107,7 +108,8 @@ RUN rm -rf ${ASTRA_ROOT}/log
 RUN rm -rf ${ASTRA_ROOT}/build
 
 RUN apt-get purge --yes libgflags-dev \
-                        nlohmann-json3-dev
+                        nlohmann-json3-dev \
+                        libusb-1.0-0-dev
 
 RUN rm -rf /var/lib/apt/lists/*
 RUN rm -rf /tmp/*
