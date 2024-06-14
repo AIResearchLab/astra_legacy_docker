@@ -74,7 +74,7 @@ RUN git clone https://github.com/libuvc/libuvc.git && \
 
 WORKDIR ${ASTRA_ROOT}/src
 
-RUN git clone clone https://github.com/AIResearchLab/astra_legacy_ros.git
+RUN git clone https://github.com/AIResearchLab/astra_legacy_ros.git
 
 RUN rosdep init && rosdep update && rosdep install --from-paths ${ASTRA_ROOT}/src -y --ignore-src
 
