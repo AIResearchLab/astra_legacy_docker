@@ -5,5 +5,4 @@ set -e
 source "/opt/ros/$ROS_DISTRO/setup.bash"
 source "$ASTRA_ROOT/install/setup.bash"
 
-
 exec "$@"

@@ -10,6 +10,7 @@ on:
     paths:
       - ".github/workflows/astra_legacy_jammy_humble.yml"
       - "Dockerfile"
+      - "workspace_entrypoint.sh"
 
   pull_request:
     branches: 
@@ -17,6 +18,7 @@ on:
     paths:
       - ".github/workflows/astra_legacy_jammy_humble.yml"
       - "Dockerfile"
+      - "workspace_entrypoint.sh"
 
 env:
   REGISTRY: ghcr.io
