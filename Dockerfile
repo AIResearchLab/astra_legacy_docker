@@ -22,6 +22,7 @@ RUN apt-get install -y --no-install-recommends ros-dev-tools \
                                                libgflags-dev \
                                                nlohmann-json3-dev \
                                                libusb-1.0-0-dev \
+                                               ros-$ROS_DISTRO-tf2-eigen \
                                                ros-$ROS_DISTRO-image-transport \
                                                ros-$ROS_DISTRO-image-publisher \
                                                ros-$ROS_DISTRO-camera-info-manager \
@@ -78,12 +79,6 @@ RUN git clone https://github.com/AIResearchLab/astra_legacy_ros.git
 
 RUN rosdep init && rosdep update && rosdep install --from-paths ${ASTRA_ROOT}/src -y --ignore-src
 
-RUN cd ${ASTRA_ROOT}/src/astra_legacy_ros/astra_camera/scripts && \
-    . install.sh && \
-    udevadm control --reload-rules && \
-    udevadm trigger
-
-
 #############################################################################################################################
 #####
 #####   Build Kobuki packages
@@ -131,6 +126,11 @@ ENV ASTRA_ROOT=/astra
 WORKDIR /
 
 COPY --from=base / /
+
+RUN wget https://raw.githubusercontent.com/AIResearchLab/astra_legacy_ros/main/astra_camera/scripts/56-orbbec-usb.rules && \
+    cp 56-orbbec-usb.rules /etc/udev/rules.d/56-orbbec-usb.rules && \
+    service udev reload && \
+    service udev restart
 
 COPY workspace_entrypoint.sh /workspace_entrypoint.sh
 
