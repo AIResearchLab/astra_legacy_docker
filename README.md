@@ -27,6 +27,11 @@ git clone https://github.com/AIResearchLab/astra_legacy_docker.git
 Pull the Docker image and run Docker compose (No need to run `docker compose build`)
 ```bash
 cd astra_legacy_docker
+docker compose pull
+```
+
+Start the docker container
+```bash
 docker compose up
 ```
 
