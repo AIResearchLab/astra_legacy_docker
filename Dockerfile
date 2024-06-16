@@ -26,6 +26,7 @@ RUN apt-get install -y --no-install-recommends ros-dev-tools \
                                                ros-$ROS_DISTRO-image-transport \
                                                ros-$ROS_DISTRO-image-publisher \
                                                ros-$ROS_DISTRO-camera-info-manager \
+                                               ros-$ROS_DISTRO-rmw-cyclonedds-cpp \
                                                udev
 
 RUN apt-get clean
@@ -124,6 +125,7 @@ FROM ros:humble-ros-base-jammy as final
 
 ## Parameters
 ENV ASTRA_ROOT=/astra
+ENV RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
 
 WORKDIR /
 
