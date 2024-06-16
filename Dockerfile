@@ -4,7 +4,7 @@
 #----
 #---------------------------------------------------------------------------------------------------------------------------
 
-FROM ros:humble-ros-core-jammy as base
+FROM ros:humble-ros-base-jammy as base
 
 ## Parameters
 ENV ASTRA_ROOT=/astra
@@ -118,7 +118,7 @@ RUN apt-get clean
 #---------------------------------------------------------------------------------------------------------------------------
 
 
-FROM ros:humble-ros-core-jammy as final
+FROM ros:humble-ros-base-jammy as final
 
 ## Parameters
 ENV ASTRA_ROOT=/astra

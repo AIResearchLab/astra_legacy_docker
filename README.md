@@ -1,5 +1,5 @@
 # astra_legacy_docker
-Docker image for setting up astra legacy (first generation) cameras in AMD64 and ARM64 systems with ROS2 Humble
+Docker image for setting up astra legacy (first generation) cameras in AMD64 and ARM64 systems with ROS2 Humble. This image bases itself on [AIResearchLab/astra_legacy_ros](https://github.com/AIResearchLab/astra_legacy_ros)
 
 ## Add this Docker container to other projects
 
