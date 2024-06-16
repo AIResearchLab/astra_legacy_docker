@@ -77,6 +77,8 @@ WORKDIR ${ASTRA_ROOT}/src
 
 RUN git clone https://github.com/AIResearchLab/astra_legacy_ros.git
 
+RUN rm /etc/ros/rosdep/sources.list.d/20-default.list
+
 RUN rosdep init && rosdep update && rosdep install --from-paths ${ASTRA_ROOT}/src -y --ignore-src
 
 #############################################################################################################################
