@@ -1,8 +1,7 @@
 #!/bin/bash
 set -e
 
-# udevadm control --reload-rules
-# udevadm trigger
+# start udev
 /lib/systemd/systemd-udevd --daemon
 
 # setup ros2 environment
